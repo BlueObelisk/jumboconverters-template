@@ -27,7 +27,7 @@ public class RecordReader extends LineReader {
 
 	private static String prefix = "ChangeMe";
 	
-	public RecordReader(Element recordReaderElement, Template template) {
+	public RecordReader(Element recordReaderElement, MarkupContainer template) {
 		super(RECORD_READER, recordReaderElement, template);
 		init0();
 	}

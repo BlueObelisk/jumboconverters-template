@@ -22,7 +22,7 @@ public abstract class AbstractTransformConverter extends AbstractConverter {
 
 	private static Logger LOG = Logger.getLogger(AbstractTransformConverter.class);
 
-	protected static Template transformTemplate = null;
+	protected static MarkupContainer transformTemplate = null;
 	
 	public MimeType getInputType() {
 		return MimeType.XML;
@@ -58,7 +58,7 @@ public abstract class AbstractTransformConverter extends AbstractConverter {
 		this.setTemplate(new Template(templateElement));
 	}
 
-	protected void setTemplate(Template template) {
+	protected void setTemplate(MarkupContainer template) {
 		this.transformTemplate = template;
 	}
 

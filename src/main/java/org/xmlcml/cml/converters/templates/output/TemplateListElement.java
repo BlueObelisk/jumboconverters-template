@@ -69,7 +69,7 @@ public class TemplateListElement implements MarkupApplier {
 	
 	public void debug() {
 		LOG.debug("DEBUG TemplateList: "+templateList.size());
-		for (Template template : templateList) {
+		for (MarkupContainer template : templateList) {
 			template.debug();
 		}
 	}

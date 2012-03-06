@@ -18,6 +18,7 @@ import org.xmlcml.cml.converters.templates.output.field.SimpleFortranFormat;
 import org.xmlcml.cml.element.CMLScalar;
 import org.xmlcml.euclid.JodaDate;
 import org.xmlcml.euclid.Real;
+import org.xmlcml.euclid.Util;
 
 public abstract class LineReader extends Element implements MarkupApplier {
 
@@ -28,6 +29,7 @@ public abstract class LineReader extends Element implements MarkupApplier {
 	private static final String ID = "id";
 
 	protected static final String ELEMENT_TYPE = "elementType";
+	private static final String MATRIXFIELDS = "matrixFields";
 	private static final String FORMAT_TYPE = "formatType";
 	private static final String NEWLINE = "newline";
 	private static final String MULTIPLE = "multiple"; // deprecated
@@ -45,6 +47,8 @@ public abstract class LineReader extends Element implements MarkupApplier {
 	private static final FormatType DEFAULT_FORMAT_TYPE = FormatType.NONE;
 	private static final String REPEAT = "repeat";
 	private static final String REPEAT_COUNT = "repeatCount"; // deprecated
+
+	//
 	private static String DEFAULT_CONTENT = "{X}";
 
 
@@ -63,8 +67,9 @@ public abstract class LineReader extends Element implements MarkupApplier {
 	}
 	 public enum LineType {
 		COMMENT("comment"),
+		MATRIX("matrix"),
 		READLINES("readLines"),
-		RECORD("record"),
+		RECORD("record"), 
 		;
 
         private final String tag;
@@ -92,6 +97,7 @@ public abstract class LineReader extends Element implements MarkupApplier {
 	protected String content;
 	private   int fieldCount;
 	protected String localDictRef;
+	protected String[] fields;
 	protected int currentCharInLine;
 	protected Integer columns;
 	protected Integer rows;
@@ -105,7 +111,7 @@ public abstract class LineReader extends Element implements MarkupApplier {
 	protected String names;
 	protected LineContainer lineContainer;
 	protected OutputLevel outputLevel;
-	protected Template template;
+	protected MarkupContainer template;
 	protected RegexProcessor regexProcessor;
 
 	public String getId() {
@@ -122,7 +128,7 @@ public abstract class LineReader extends Element implements MarkupApplier {
 		fieldList = new ArrayList<Field>();
 	}
 
-	public LineReader(String tag, Element lineReaderElement, Template template) {
+	public LineReader(String tag, Element lineReaderElement, MarkupContainer template) {
 		super(tag);
 		init();
 		this.template = template;
@@ -154,6 +160,10 @@ public abstract class LineReader extends Element implements MarkupApplier {
 		return fieldList;
 	}
 
+	public String[] getMatrixFields() {
+		return fields;
+	}
+
 	public int getFieldCount() {
 		return fieldCount;
 	}
@@ -182,6 +192,7 @@ public abstract class LineReader extends Element implements MarkupApplier {
 	private void processAttributesAndContent() {
 		Template.checkIfAttributeNamesAreAllowed(lineReaderElement, new String[]{
 			ID,
+			MATRIXFIELDS,
 			FORMAT_TYPE,
 			LINES_TO_READ,
 			MAKE_ARRAY,
@@ -197,6 +208,7 @@ public abstract class LineReader extends Element implements MarkupApplier {
 		processAttributeFormatType();
 		processAttributeLinesToRead();
 		processAttributeRepeatCount();
+		processAttributeMatrixFields();
 		processAttributeNames();
 		processAttributeMakeArrays();
 		processAttributeId();
@@ -230,6 +242,20 @@ public abstract class LineReader extends Element implements MarkupApplier {
 		this.names = lineReaderElement.getAttributeValue(NAMES);
 		if (names != null) {
 			this.addAttribute(new Attribute(NAMES, names));
+		}
+	}
+
+	private void processAttributeMatrixFields() {
+		fields = null;
+		String fieldsS = lineReaderElement.getAttributeValue(MATRIXFIELDS);
+		if (fieldsS != null) {
+			fields = fieldsS.toLowerCase().split(Util.S_WHITEREGEX);
+			for (String field : fields) {
+				if (!Util.containsString(Matrix.MATRIXROLES, field)) {
+					throw new RuntimeException("matrixfields cannot contain: "+field);
+				}
+			}
+			this.addAttribute(new Attribute(MATRIXFIELDS, fieldsS));
 		}
 	}
 

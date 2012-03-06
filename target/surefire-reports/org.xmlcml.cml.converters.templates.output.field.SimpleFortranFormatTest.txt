@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.xmlcml.cml.converters.templates.output.field.SimpleFortranFormatTest
+-------------------------------------------------------------------------------
+Tests run: 58, Failures: 0, Errors: 0, Skipped: 15, Time elapsed: 0.245 sec

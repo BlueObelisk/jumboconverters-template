@@ -14,9 +14,9 @@ public class Debug implements MarkupApplier {
 	public static final String TAG = "debug";
 
 	private LineContainer lineContainer;
-	private Template template;
+	private MarkupContainer template;
 	
-	public Debug(Template template) {
+	public Debug(MarkupContainer template) {
 		this.template = template;
 	}
 
