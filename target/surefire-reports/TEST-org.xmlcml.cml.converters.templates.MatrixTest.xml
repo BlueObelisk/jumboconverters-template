@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.396" errors="0" skipped="19" tests="34" name="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest">
+<testsuite failures="0" time="2.821" errors="0" skipped="4" tests="11" name="org.xmlcml.cml.converters.templates.MatrixTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_02\jre\bin"/>
@@ -36,7 +36,7 @@
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="6.1"/>
     <property name="user.home" value="C:\Users\pm286"/>
-    <property name="user.timezone" value="Europe/London"/>
+    <property name="user.timezone" value=""/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="java.specification.version" value="1.7"/>
     <property name="file.encoding" value="Cp1252"/>
@@ -62,76 +62,23 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.007" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readInt"/>
-  <testcase time="0.008" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readRecordRepeatStar">
+  <testcase time="2.627" classname="org.xmlcml.cml.converters.templates.MatrixTest" name="testDoubleHeaderWithoutMatrix"/>
+  <testcase time="0.002" classname="org.xmlcml.cml.converters.templates.MatrixTest" name="testBadFields"/>
+  <testcase time="0.02" classname="org.xmlcml.cml.converters.templates.MatrixTest" name="testDoubleHeader"/>
+  <testcase time="0.021" classname="org.xmlcml.cml.converters.templates.MatrixTest" name="testFooter0">
     <skipped/>
   </testcase>
-  <testcase time="0.008" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readRecordMid">
+  <testcase time="0.072" classname="org.xmlcml.cml.converters.templates.MatrixTest" name="testMatrix0"/>
+  <testcase time="0.004" classname="org.xmlcml.cml.converters.templates.MatrixTest" name="testRow"/>
+  <testcase time="0.016" classname="org.xmlcml.cml.converters.templates.MatrixTest" name="testHeader"/>
+  <testcase time="0.016" classname="org.xmlcml.cml.converters.templates.MatrixTest" name="testFooter">
     <skipped/>
   </testcase>
-  <testcase time="0.009" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readRecordInMiddle">
+  <testcase time="0.017" classname="org.xmlcml.cml.converters.templates.MatrixTest" name="testBody">
     <skipped/>
   </testcase>
-  <testcase time="0.003" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="createMultipleRecord"/>
-  <testcase time="0.003" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="createMultipleRecord1"/>
-  <testcase time="0.003" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readMultipleRecord0">
-    <skipped/>
-  </testcase>
-  <testcase time="0.004" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readRecordRepeat2">
-    <skipped/>
-  </testcase>
-  <testcase time="0.007" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readRecordFail"/>
-  <testcase time="0.008" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readRecordRepeat">
-    <skipped/>
-  </testcase>
-  <testcase time="0.006" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="getNormalizedLineElement"/>
-  <testcase time="0.006" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readMultipleRecord00">
-    <skipped/>
-  </testcase>
-  <testcase time="0.007" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readMultipleRecord">
-    <skipped/>
-  </testcase>
-  <testcase time="0.007" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readMultipleRecord1">
-    <skipped/>
-  </testcase>
-  <testcase time="0.007" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readMultipleRecordWithBlank">
-    <skipped/>
-  </testcase>
-  <testcase time="0.008" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readRepeatedMultipleRecord">
-    <skipped/>
-  </testcase>
-  <testcase time="0.008" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readMultipleRecordWithBlank1">
-    <skipped/>
-  </testcase>
-  <testcase time="0.009" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readSymbolic1">
-    <skipped/>
-  </testcase>
-  <testcase time="0.012" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readSymbolicWithNames"/>
-  <testcase time="0.272" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readIntAndDate"/>
-  <testcase time="0.272" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="testReadRecord">
-    <skipped/>
-  </testcase>
-  <testcase time="0.003" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="createRecordWithNamesAndTypes"/>
-  <testcase time="0.003" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="createRecordWithFixedWidthNamesAndTypes"/>
-  <testcase time="0.004" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readRepeatedMultipleRecordWithBlank">
-    <skipped/>
-  </testcase>
-  <testcase time="0.008" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readDate"/>
-  <testcase time="0.007" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readDate1"/>
-  <testcase time="0.008" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readDate2"/>
-  <testcase time="0.002" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readArray0"/>
-  <testcase time="0.003" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readArray00"/>
-  <testcase time="0.003" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readSymbolic">
-    <skipped/>
-  </testcase>
-  <testcase time="0.002" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="createRecord"/>
-  <testcase time="0.003" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="read2Records">
-    <skipped/>
-  </testcase>
-  <testcase time="0.003" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readRecord">
-    <skipped/>
-  </testcase>
-  <testcase time="0.003" classname="org.xmlcml.cml.converters.templates.output.field.RecordReaderTest" name="readArray">
+  <testcase time="0.006" classname="org.xmlcml.cml.converters.templates.MatrixTest" name="testFields"/>
+  <testcase time="0.006" classname="org.xmlcml.cml.converters.templates.MatrixTest" name="testComplete">
     <skipped/>
   </testcase>
 </testsuite>

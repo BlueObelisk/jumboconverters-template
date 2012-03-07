@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: org.xmlcml.cml.converters.templates.TemplateTest
+Test set: org.xmlcml.cml.converters.templates.MatrixTest
 -------------------------------------------------------------------------------
-Tests run: 40, Failures: 0, Errors: 0, Skipped: 10, Time elapsed: 0.295 sec
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 2.823 sec

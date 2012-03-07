@@ -1,6 +1,7 @@
 package org.xmlcml.cml.converters.templates;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.xmlcml.cml.base.CMLUtil;
 import org.xmlcml.cml.converters.templates.output.LineContainer;
@@ -64,6 +65,7 @@ public class MatrixTest {
 	}
 	
 	@Test
+	@Ignore // development
 	public void testBody() {
 		String templateS = 
 				"<template>" +
@@ -201,6 +203,7 @@ public class MatrixTest {
 	
 	
 	@Test
+	@Ignore // development
 	public void testFooter0() {
 		String templateS = 
 				"<template>" +
@@ -227,6 +230,7 @@ public class MatrixTest {
 	}
 	
 	@Test
+	@Ignore // development
 	public void testFooter() {
 		String templateS = 
 				"<template>" +
@@ -259,6 +263,7 @@ public class MatrixTest {
 	
 	
 	@Test
+	@Ignore // development
 	public void testComplete() {
 		String templateS = 
 				"<template>" +
