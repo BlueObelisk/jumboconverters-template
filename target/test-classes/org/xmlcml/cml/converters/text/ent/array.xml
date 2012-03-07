@@ -1,1 +1,0 @@
-    <template id='array' name='array' pattern='.*Largest allocated.*' endPattern='\s*'/>

@@ -1,1 +1,0 @@
-    <template id='atomic1' name='atomic1' pattern='.*atomic species\s+valence.*' endPattern='\s*'/>

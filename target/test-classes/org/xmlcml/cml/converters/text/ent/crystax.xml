@@ -1,1 +1,0 @@
-    <template id='crystax' name='crystax' pattern='.*\s+Crystallographic axes.*' endPattern='\s*'/>

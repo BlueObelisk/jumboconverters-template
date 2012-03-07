@@ -1,1 +1,0 @@
-    <template id='pwscf' name='pwscf' pattern='.*PWSCF\s*:.*' endPattern='\s*'/>

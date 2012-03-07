@@ -1,1 +1,0 @@
-    <template id='prog' name='prog' pattern='.*Program PWSCF.*' endPattern='\s*'/>

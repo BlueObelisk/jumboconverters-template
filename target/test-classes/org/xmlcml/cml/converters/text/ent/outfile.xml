@@ -1,1 +1,0 @@
-    <template id='outfile' name='outfile' pattern='.*Writing output data.*' endPattern='\s*'/>

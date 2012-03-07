@@ -1,1 +1,0 @@
-    <template id='nonloc' name='nonloc' repeatCount='*' pattern='.*Non\-local correlation energy.*' endPattern='\s*'/>

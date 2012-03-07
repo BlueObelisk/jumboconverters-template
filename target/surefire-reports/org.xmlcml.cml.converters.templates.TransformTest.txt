@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.xmlcml.cml.converters.templates.TransformTest
--------------------------------------------------------------------------------
-Tests run: 92, Failures: 0, Errors: 0, Skipped: 6, Time elapsed: 1.167 sec

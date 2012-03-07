@@ -1,1 +1,0 @@
-    <template id='pointgroup' name='pointgroup' pattern='.*point group.*' endPattern='\s*'/>

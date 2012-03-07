@@ -1,1 +1,0 @@
-    <template id='fermi' name='fermi' pattern='.*the Fermi energy .*' endPattern='\s*'/>

@@ -1,1 +1,0 @@
-    <template id='force' name='force' pattern='.*Forces acting on atoms.*' endPattern='\s*'/>

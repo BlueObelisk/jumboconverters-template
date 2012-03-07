@@ -1,2 +1,0 @@
-    <template id='totcpu' name='totcpu' repeatCount='*' pattern='.*total cpu time spent up to now.*' endPattern='\s*'/>
-    

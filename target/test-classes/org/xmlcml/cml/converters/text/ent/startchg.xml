@@ -1,2 +1,0 @@
-    <template id='startchg' name='startchg' pattern='.*starting charge.*' endPattern='\s*'/>
-    

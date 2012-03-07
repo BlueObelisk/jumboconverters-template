@@ -1,1 +1,0 @@
-    <template id='energies' name='energies' pattern='.*one\-electron.*' endPattern='\s*'/>
