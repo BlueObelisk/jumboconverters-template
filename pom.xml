@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>jc-template-parser</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <name>jc-template-parser</name>
 
 	<repositories>
