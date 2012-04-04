@@ -11,7 +11,15 @@
     </parent>
 
     <artifactId>jc-template-parser</artifactId>
+    <packaging>pom</packaging>
     <name>jc-template-parser</name>
+
+	<repositories>
+	  <repository>
+	    <id>ucc-repo</id>
+	    <url>http://maven.ch.cam.ac.uk/m2repo</url>
+	  </repository>
+	</repositories>
 
     <dependencies>
         <dependency>
