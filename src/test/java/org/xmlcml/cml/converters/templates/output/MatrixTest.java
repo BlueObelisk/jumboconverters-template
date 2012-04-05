@@ -1,6 +1,7 @@
-package org.xmlcml.cml.converters.templates;
+package org.xmlcml.cml.converters.templates.output;
 
 import org.junit.Assert;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.xmlcml.cml.base.CMLUtil;
@@ -9,6 +10,7 @@ import org.xmlcml.cml.converters.templates.output.MarkupContainer;
 import org.xmlcml.cml.converters.templates.output.Template;
 import org.xmlcml.cml.testutil.JumboTestUtils;
 
+@Ignore
 public class MatrixTest {
 
 	@Test

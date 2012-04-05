@@ -1,4 +1,4 @@
-package org.xmlcml.cml.converters.templates;
+package org.xmlcml.cml.converters.templates.output;
 
 import org.junit.Assert;
 import org.junit.Ignore;

@@ -1,5 +1,6 @@
 package org.xmlcml.cml.converters.templates.output;
 
+
 import nu.xom.Element;
 import nu.xom.Node;
 import nu.xom.Text;
@@ -29,7 +30,7 @@ public class Deleter extends Template {
 		while (inode < linesElement.getChildCount()) {
 			Node node = linesElement.getChild(inode);
 			if (node instanceof Text) {
-				Int2 range = lineContainer.matchLines(inode, startChunker);
+				Int2 range = lineContainer.matchLines(inode, startChunker.getPatternList());
 				if (range != null) {
 					// detach nodes; count does not need incrementing
 					for (int i = 0; i < range.getY() - range.getX(); i++) {

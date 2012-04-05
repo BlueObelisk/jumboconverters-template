@@ -1,4 +1,4 @@
-package org.xmlcml.cml.converters.templates;
+package org.xmlcml.cml.converters.templates.output;
 
 import org.junit.Test;
 import org.xmlcml.cml.base.CMLUtil;

@@ -1,4 +1,4 @@
-package org.xmlcml.cml.converters.templates;
+package org.xmlcml.cml.converters.templates.output;
 
 import java.io.File;
 import java.io.FileOutputStream;
