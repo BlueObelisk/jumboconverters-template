@@ -449,6 +449,24 @@ public class TransformTest {
 	}
 	
 
+    @Test 
+    public void testCopyPosition() {
+        runTest("copy", 
+                "<transform process='copy' xpath='./bar/c' to='../tome' position='1'/>",
+                "<foo><bar><c id='c1'/><tome><one/><two/></tome></bar></foo>",
+                "<foo><bar><c id='c1'/><tome><c id='c1.copy'/><one/><two/></tome></bar></foo>"
+                );
+    }
+    
+    @Test 
+    public void testCopyAbsolutePosition() {
+        runTest("copyAbsolute", 
+                "<transform process='copyAbsolute' xpath='./one/c' to='.' position='3'/>",
+                "<foo><one><c id='c1'/></one><two/><three/></foo>",
+                "<foo><one><c id='c1'/></one><two/><c id='c1.copy'/><three/></foo>"
+                );
+    }
+
 	@Test 
 	public void testCreateArray() {
 		Element foo = new Element("foo");

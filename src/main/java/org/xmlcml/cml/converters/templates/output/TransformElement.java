@@ -169,6 +169,7 @@ public class TransformElement implements MarkupApplier {
 	private static final String ADD_UNITS              = "addUnits";
 	private static final String CHECK_DICTIONARY       = "checkDictionary";
 	private static final String COPY                   = "copy";
+	private static final String COPY_ABSOLUTE          = "copyAbsolute";
 	private static final String CREATE_ANGLE           = "createAngle";
 	private static final String CREATE_ARRAY           = "createArray";
 	private static final String CREATE_ATOM            = "createAtom";
@@ -246,6 +247,7 @@ public class TransformElement implements MarkupApplier {
 		ADD_UNITS,
 		CHECK_DICTIONARY,
 		COPY,
+		COPY_ABSOLUTE,
 		CREATE_ANGLE,
 		CREATE_ARRAY,
 		CREATE_ATOM,
@@ -495,6 +497,8 @@ public class TransformElement implements MarkupApplier {
 			checkDictionary();
 		} else if (COPY.equals(process)) {
 			copy();
+		} else if (COPY_ABSOLUTE.equals(process)) {
+		    copyAbsolute();
 		} else if (CREATE_ANGLE.equals(process)) {
 			createAngle();
 		} else if (CREATE_ARRAY.equals(process)) {
@@ -921,7 +925,7 @@ public class TransformElement implements MarkupApplier {
 		}
 	}
 
-
+    // TODO - rename to copyRelative and copyAbsolute to copy
 	private void copy() {
 		assertRequired(XPATH, xpath);
 		assertRequired(TO, to);
@@ -938,20 +942,74 @@ public class TransformElement implements MarkupApplier {
 					id = id+".copy";
 				}
 				Nodes toNodes = TransformElement.queryUsingNamespaces(element, to);
-				ParentNode parent =  null;
+				ParentNode toParent =  null;
 				if (toNodes.size() == 1 && toNodes.get(0) instanceof ParentNode) {
-					parent = (ParentNode) toNodes.get(0);
+					toParent = (ParentNode) toNodes.get(0);
 				} else if (toNodes.size() == nodeList.size()) {
-					parent = (ParentNode) toNodes.get(i);
+					toParent = (ParentNode) toNodes.get(i);
 				}
-				if (parent != null) {
-					parent.appendChild(elementCopy);
-					elementCopy.addAttribute(new Attribute(ID, id));
+				if (toParent != null) {
+                    elementCopy.addAttribute(new Attribute(ID, id));
+                    // position counts from ONE
+                    Integer pos = (position == null) ? null : new Integer(position)-1;
+                    int toChildCount = toParent.getChildCount();
+                    if (position == null || pos == toChildCount) {
+                        elementCopy.detach();
+                        toParent.appendChild(elementCopy);
+                    } else if (pos >= 0 && pos <= toChildCount) {
+                        elementCopy.detach();
+                        toParent.insertChild(elementCopy, pos);
+                    } else {
+                        LOG.trace("move position out of range "+pos+"; toChildCount  "+toChildCount);
+                    }
 				}
 			}
 		}
 	}
+	
+	// TODO - rename to copy and copy to copyRelative
+    private void copyAbsolute() {
+        assertRequired(XPATH, xpath);
+        assertRequired(TO, to);
+        List<Node> nodeList = getXpathQueryResults();
+        Nodes toParents = TransformElement.queryUsingNamespaces(parsedElement,to);
+        ParentNode toParent = (toParents.size() == 1) ? (ParentNode) toParents.get(0) : null;
+        if (toParent != null) {
+            int i = 0;
+            for (Node node : nodeList) {
+                if (node instanceof Element && !(node.equals(toParent))) {
+                    Element element = (Element) node;
+                    Element elementCopy = (element instanceof CMLElement) ? CMLElement
+                            .createCMLElement(element) : (Element) element.copy();
+                    String id = elementCopy.getAttributeValue(ID);
+                    if (id == null) {
+                        id = "copy." + i;
+                    } else {
+                        id = id + ".copy";
+                    }
+                    elementCopy.addAttribute(new Attribute(ID, id));
+                    // position counts from ONE
+                    Integer pos = (position == null) ? null : new Integer(
+                            position) - 1;
+                    int toChildCount = toParent.getChildCount();
+                    if (position == null || pos == toChildCount) {
+                        elementCopy.detach();
+                        toParent.appendChild(elementCopy);
+                    } else if (pos >= 0 && pos <= toChildCount) {
+                        elementCopy.detach();
+                        toParent.insertChild(elementCopy, pos);
+                    } else {
+                        LOG.trace("move position out of range " + pos
+                                + "; toChildCount  " + toChildCount);
+                    }
+                    i++;
+                }
+            }
+        }
+    }
 
+	
+	
 	private void createAngle() {
 		assertRequired(XPATH, xpath);
 		assertRequired(ATOM_REFS, atomRefs);
