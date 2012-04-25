@@ -169,7 +169,7 @@ public class TransformElement implements MarkupApplier {
 	private static final String ADD_UNITS              = "addUnits";
 	private static final String CHECK_DICTIONARY       = "checkDictionary";
 	private static final String COPY                   = "copy";
-	private static final String COPY_ABSOLUTE          = "copyAbsolute";
+	private static final String COPY_RELATIVE          = "copyRelative";
 	private static final String CREATE_ANGLE           = "createAngle";
 	private static final String CREATE_ARRAY           = "createArray";
 	private static final String CREATE_ATOM            = "createAtom";
@@ -247,7 +247,7 @@ public class TransformElement implements MarkupApplier {
 		ADD_UNITS,
 		CHECK_DICTIONARY,
 		COPY,
-		COPY_ABSOLUTE,
+		COPY_RELATIVE,
 		CREATE_ANGLE,
 		CREATE_ARRAY,
 		CREATE_ATOM,
@@ -496,9 +496,9 @@ public class TransformElement implements MarkupApplier {
 		} else if (CHECK_DICTIONARY.equals(process)) {
 			checkDictionary();
 		} else if (COPY.equals(process)) {
-			copy();
-		} else if (COPY_ABSOLUTE.equals(process)) {
-		    copyAbsolute();
+		    copy();
+		} else if (COPY_RELATIVE.equals(process)) {
+			copyRelative();
 		} else if (CREATE_ANGLE.equals(process)) {
 			createAngle();
 		} else if (CREATE_ARRAY.equals(process)) {
@@ -925,8 +925,7 @@ public class TransformElement implements MarkupApplier {
 		}
 	}
 
-    // TODO - rename to copyRelative and copyAbsolute to copy
-	private void copy() {
+	private void copyRelative() {
 		assertRequired(XPATH, xpath);
 		assertRequired(TO, to);
 		List<Node> nodeList = getXpathQueryResults();
@@ -967,8 +966,7 @@ public class TransformElement implements MarkupApplier {
 		}
 	}
 	
-	// TODO - rename to copy and copy to copyRelative
-    private void copyAbsolute() {
+    private void copy() {
         assertRequired(XPATH, xpath);
         assertRequired(TO, to);
         List<Node> nodeList = getXpathQueryResults();

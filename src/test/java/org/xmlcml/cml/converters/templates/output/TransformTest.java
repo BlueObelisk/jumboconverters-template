@@ -429,41 +429,39 @@ public class TransformTest {
 			);
 	}
 
+    @Test 
+    public void testCopyPosition() {
+        runTest("copy", 
+                "<transform process='copy' xpath='./one/c' to='.' position='3'/>",
+                "<foo><one><c id='c1'/></one><two/><three/></foo>",
+                "<foo><one><c id='c1'/></one><two/><c id='c1.copy'/><three/></foo>"
+                );
+    }
 	
 	@Test 
-	public void testCopy() {
-		runTest("copy", 
-				"<transform process='copy' xpath='./c[1]' to='/foo/bar'/>",
+	public void testCopyRelative() {
+		runTest("copyRelative", 
+				"<transform process='copyRelative' xpath='./c[1]' to='/foo/bar'/>",
 				"<foo><c id='c1'/><c id='c2'/><c id='c3'/><c id='c4'/><bar/></foo>",
 				"<foo><c id='c1'/><c id='c2'/><c id='c3'/><c id='c4'/><bar><c id='c1.copy'/></bar></foo>"
 				);
 	}
 	
 	@Test 
-	public void testCopy1() {
-		runTest("copy", 
-				"<transform process='copy' xpath='./c' to='/foo/c'/>",
+	public void testCopyRelative1() {
+		runTest("copyRelative", 
+				"<transform process='copyRelative' xpath='./c' to='/foo/c'/>",
 				"<foo><c id='c1'/><c id='c2'/><c id='c3'/><c id='c4'/></foo>",
 				"<foo><c id='c1'><c id='c1.copy'/></c><c id='c2'><c id='c2.copy'/></c><c id='c3'><c id='c3.copy'/></c><c id='c4'><c id='c4.copy'/></c></foo>"
 				);
 	}
-	
 
     @Test 
-    public void testCopyPosition() {
-        runTest("copy", 
-                "<transform process='copy' xpath='./bar/c' to='../tome' position='1'/>",
+    public void testCopyRelativePosition() {
+        runTest("copyRelative", 
+                "<transform process='copyRelative' xpath='./bar/c' to='../tome' position='1'/>",
                 "<foo><bar><c id='c1'/><tome><one/><two/></tome></bar></foo>",
                 "<foo><bar><c id='c1'/><tome><c id='c1.copy'/><one/><two/></tome></bar></foo>"
-                );
-    }
-    
-    @Test 
-    public void testCopyAbsolutePosition() {
-        runTest("copyAbsolute", 
-                "<transform process='copyAbsolute' xpath='./one/c' to='.' position='3'/>",
-                "<foo><one><c id='c1'/></one><two/><three/></foo>",
-                "<foo><one><c id='c1'/></one><two/><c id='c1.copy'/><three/></foo>"
                 );
     }
 
